@@ -5,7 +5,9 @@ import { useEffect, useState } from "react";
 
 export const App = () =>  {
   const [colors, setColors] = useState([])
+  const [colorsFiltered, setColorsFiltered] = useState([])
   const [selectedColor, setSelectedColor] = useState('')
+  const [filterString, setFilterString] = useState('')
 
   useEffect(() => {
     getColors()
@@ -18,7 +20,8 @@ export const App = () =>  {
       .then(response => response.json())
       .then(response => {
         console.log(response.colors)
-        setColors(response.colors)  
+        setColors(response.colors) 
+        setColorsFiltered(response.colors) 
         return response.colors;
       })
       .catch(error => {
@@ -49,14 +52,18 @@ export const App = () =>  {
       });
   }
 
+  const filterStringChanged =(str) => {
+    setColorsFiltered(colors.filter(color => color.ColorName.toLowerCase().includes(str.toLowerCase())))
+  }
+
 
   return (
     <div style={{ display: "flex", flex: 1, height:'100vh', flexDirection: "column",alignItems:'stretch'}}>
-      <TopBar/>
+      <TopBar setFilterString={(str) => filterStringChanged(str)} filterString={filterString}/>
       <div style={{ display: "flex", flex: 10, flexDirection: "row", alignSelf:'stretch',  }}>
         <div style={{ display: "flex", backgroundColor: "green",  flex:1 }}>
           <SideBar 
-            colors={colors} getColors={() => getColors()} 
+            colors={colorsFiltered} getColors={() => getColors()} 
             genColor={(hexString, colorName) => insertColor(hexString, colorName)}
             selectColor={(hexString, colorName) => setSelectedColor({hexString, colorName})}
             />
