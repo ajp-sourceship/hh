@@ -33,7 +33,6 @@ export const App = () =>  {
         hexString, 
         colorName
       }
-      var jsstring = JSON.stringify(body);
 
     return fetch('http://localhost:3200/color/insertColor', {
       method: "POST",
