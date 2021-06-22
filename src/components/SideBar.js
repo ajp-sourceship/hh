@@ -11,7 +11,7 @@ export const SideBar = (props) => {
     let colorName = GetColorName(hexString);
     hexString = `#` + hexString;
     props.genColor(hexString, colorName);
-    props.selectColor(hexString, colorName)
+    props.selectColor(hexString, colorName);
     props.getColors();
   };
 
@@ -22,18 +22,30 @@ export const SideBar = (props) => {
         backgroundColor: "#D6D8D8",
         flex: 1,
         flexDirection: "column",
-        overflow:'scroll',
-        height:'92vh'
+        overflow: "scroll",
+        height: "92vh",
       }}
     >
-      <button onClick={() => generateColor()}>Test</button>
+      <div
+        style={{
+          backgroundColor: "grey",
+          borderRadius: 8,
+          alignItems: "center",
+          justifyContent: "center",
+          display: "flex",
+          margin: 10,
+          fontFamily: "Roboto Condensed",
+          padding: 4,
+        }}
+        onClick={() => generateColor()}
+      >
+        <h3 style={{ color: "white" }}>Generate Color</h3>
+      </div>
       {props.colors.map((color) => {
         return (
-          <div
-          style={{display:'flex', 
-          marginLeft:20}}>
+          <div style={{ display: "flex", marginLeft: 20 }}>
             <h1
-              style={{fontFamily: 'Roboto Condensed'}}
+              style={{ fontFamily: "Roboto Condensed" }}
               key={color.ColorId}
               onClick={() => props.selectColor(color.HexString)}
             >
