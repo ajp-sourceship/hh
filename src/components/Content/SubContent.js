@@ -54,7 +54,7 @@ export const SubContent = (props) => {
               style={{
                 backgroundColor: "white",
                 width: "10%",
-                height: "60%",
+                height: "80%",
                 borderColor: "black",
                 borderWidth: 2,
                 borderStyle: "solid",
@@ -66,12 +66,12 @@ export const SubContent = (props) => {
               <div
                 style={{
                   backgroundColor: rgba,
-                  height: "90%",
+                  height: "70%",
                 }}
               ></div>
-              <h1 style={{ margin: 10, fontFamily: "Roboto Condensed" }}>
+              <h3 style={{ margin: 10, fontFamily: "Roboto Condensed" }}>
                 {props.selectedColor.hexString}
-              </h1>
+              </h3>
             </div>
           );
         })}
