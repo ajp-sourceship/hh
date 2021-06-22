@@ -1,7 +1,7 @@
-import MainContent from "./MainContent";
-import SubContent from "./SubContent";
+import {MainContent} from "./MainContent";
+import {SubContent} from "./SubContent";
 
-function Content() {
+export const Content = (props) => {
   return (
     <div
       style={{
@@ -11,10 +11,10 @@ function Content() {
         flexDirection: "column",
       }}
     >
-      <MainContent />
-      <SubContent />
+      <MainContent selectedColor={props.selectedColor} colors={props.Colors} />
+      <SubContent selectedColor={props.selectedColor} colors={props.Colors} />
     </div>
   );
 }
 
-export default Content;
+
