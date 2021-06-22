@@ -8,12 +8,14 @@ export const SubContent = (props) => {
     if (props.selectedColor.hexString !== "") {
       let temp = [];
       for (let index = 1; index < 6; index++) {
+        console.log(index)
         let ret = props.selectedColor.hexString;
         let rgbastring = convertHexToRGBA(ret, index / 10);
 
         temp.push(rgbastring);
         temp.reverse();
       }
+      console.log(temp)
       setColorPallet(temp);
     }
   }, [props.selectedColor.hexString]);
@@ -24,6 +26,8 @@ export const SubContent = (props) => {
     // this shouldnt fire in the useEffect but this if statement was put there
     // the bug is when regreshed the hex code is undefined an it errors
     // didnt originally show up because i was using hot reloading and that prevented the undefienc hex
+    // the if statement should not exist
+    // oh yeah this part was a git hub snippet - i did not know how to convert hex to rgba before this 
     if (hexCode !== undefined) {
       let hex = hexCode.replace("#", "");
 
@@ -48,7 +52,6 @@ export const SubContent = (props) => {
         }}
       >
         {colorPallet.map((rgba) => {
-          console.log(rgba);
           return (
             <div
               style={{
