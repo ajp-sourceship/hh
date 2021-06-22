@@ -17,11 +17,13 @@ export const MainContent = (props) => {
           borderWidth: 2,
           borderStyle: "solid",
           borderRadius: 8,
+          
         }}
       >
         <div
           style={{
             backgroundColor: props.selectedColor.hexString,
+            
             height: "90%",
           }}
         ></div>

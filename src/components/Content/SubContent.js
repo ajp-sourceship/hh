@@ -10,15 +10,26 @@ export const SubContent = (props) => {
       for (let index = 1; index < 6; index++) {
         console.log(index)
         let ret = props.selectedColor.hexString;
-        let rgbastring = convertHexToRGBA(ret, index / 10);
+        let rgbastring = convertHexToRGBA(ret, (100- (index * 10)) / 100);
 
-        temp.push(rgbastring);
+        temp.push({rgba: rgbastring, hexColor: rgba2HexCode(rgbastring), opacity: (100- (index * 10)) / 100});
+        temp.sort((colorA, colorB) => colorA.opacity - colorB.opacity)
         temp.reverse();
       }
       console.log(temp)
       setColorPallet(temp);
     }
   }, [props.selectedColor.hexString]);
+
+  const rgba2HexCode = (color)=> {
+    if(color !== undefined)
+    {
+    const rgba = color.replace(/^rgba?\(|\s+|\)$/g, '').split(',');
+    const hex = `#${((1 << 24) + (parseInt(rgba[0]) << 16) + (parseInt(rgba[1]) << 8) + parseInt(rgba[2])).toString(16).slice(1)}`;
+    
+    return hex;}
+}
+
 
   const convertHexToRGBA = (hexCode, opacity) => {
     //regardless if this effects like thoughts about me
@@ -51,7 +62,7 @@ export const SubContent = (props) => {
           flex: 5,
         }}
       >
-        {colorPallet.map((rgba) => {
+        {colorPallet.map((color) => {
           return (
             <div
               style={{
@@ -68,12 +79,12 @@ export const SubContent = (props) => {
             >
               <div
                 style={{
-                  backgroundColor: rgba,
+                  backgroundColor: color.rgba,
                   height: "70%",
                 }}
               ></div>
               <h3 style={{ margin: 10, fontFamily: "Roboto Condensed" }}>
-                {props.selectedColor.hexString}
+                {color.hexColor}
               </h3>
             </div>
           );
