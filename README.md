@@ -11,5 +11,7 @@ What Went on:
   Front End Successful
   Back End Failure
 
+Front End url: https://main.ddaonjar68sjt.amplifyapp.com/
+
 Whats Missing 
-Deployment Errors - node is not starting in prod
+Deployment Errors for Express Backend - node is not starting in prod
