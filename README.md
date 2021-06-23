@@ -7,7 +7,9 @@ What Went on:
 2. Front End replicates demo.pngs
 3. Back End w/ Express created that queries db
 4. Tied together
-5. Deployment- failure XXX
+5. Deployment- 
+  Front End Successful
+  Back End Failure
 
 Whats Missing 
 Deployment Errors - node is not starting in prod
