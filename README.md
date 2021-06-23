@@ -1,4 +1,4 @@
-# Getting Started with Create React App
+# HH Interview Front End
 
 Has most if not all of the basic requirements from the challenge repo
 
