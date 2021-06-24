@@ -91,9 +91,14 @@ export const SubContent = (props) => {
                   height: "70%",
                 }}
               ></div>
+              <div style={{display:'flex', flexDirection:'row'}}>
               <h3 style={{ margin: 10, fontFamily: "Roboto Condensed" }}>
                 {color.hexColor}
               </h3>
+              <h3 style={{ marginTop: 10, fontFamily: "Roboto Condensed" }}>
+                {'opacity: ' +  (color.opacity * 100) + `%`}
+              </h3>
+              </div>
             </div>
           );
         })}
