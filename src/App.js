@@ -14,7 +14,7 @@ export const App = () =>  {
   }, [])
 
   const getColors = () => {
-    return fetch('https://hhapi-env.eba-wmrthc3i.us-east-1.elasticbeanstalk.com/api/getcolors', {
+    return fetch('https://hhapi.indydev.io/api/getcolors', {
       method: "POST",
     })
       .then(response => response.json())
@@ -36,7 +36,7 @@ export const App = () =>  {
         colorName
       }
 
-    return fetch('https://hhapi-env.eba-wmrthc3i.us-east-1.elasticbeanstalk.com/api/insertColor', {
+    return fetch('https://hhapi.indydev.io/api/insertColor', {
       method: "POST",
       headers:myHeaders,
       body: JSON.stringify(body)
@@ -67,7 +67,7 @@ export const App = () =>  {
             />
         </div>
         <div style={{ display: "flex", flex:6 }}>
-          {selectedColor == '' ? 
+          {selectedColor !== '' ? 
             <Content 
               colors={colors}
               selectedColor={selectedColor}
