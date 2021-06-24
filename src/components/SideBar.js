@@ -15,9 +15,8 @@ export const SideBar = (props) => {
     props.selectColor(hexString, colorName);
     props.getColors();
   };
-  if(props.colors !== undefined )
+  if(props.colors !== null )
   {
-
   return (
     <div
       style={{
@@ -25,11 +24,10 @@ export const SideBar = (props) => {
         backgroundColor: "#D6D8D8",
         flex: 1,
         flexDirection: "column",
-        
         height: "92vh",
       }}
     >
-       <div
+       <button
           style={{
             backgroundColor: "grey",
             borderRadius: 8,
@@ -43,7 +41,7 @@ export const SideBar = (props) => {
           onClick={() => generateColor()}
         >
           <h3 style={{ color: "white" }}>Generate Color</h3>
-        </div>
+        </button>
       <Scrollbars style={{  }}>
         {props.colors.map((color) => {
           return (
