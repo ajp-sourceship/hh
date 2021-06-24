@@ -22,24 +22,14 @@ export const SubContent = (props) => {
   }, [props.selectedColor.hexString]);
 
   const rgba2HexCode = (color)=> {
-    if(color !== undefined)
-    {
     const rgba = color.replace(/^rgba?\(|\s+|\)$/g, '').split(',');
     const hex = `#${((1 << 24) + (parseInt(rgba[0]) << 16) + (parseInt(rgba[1]) << 8) + parseInt(rgba[2])).toString(16).slice(1)}`;
     
-    return hex;}
+    return hex;
 }
 
 
   const convertHexToRGBA = (hexCode, opacity) => {
-    //regardless if this effects like thoughts about me
-    // id like to point out this hack and the bad practice
-    // this shouldnt fire in the useEffect but this if statement was put there
-    // the bug is when regreshed the hex code is undefined an it errors
-    // didnt originally show up because i was using hot reloading and that prevented the undefienc hex
-    // the if statement should not exist
-    // oh yeah this part was a git hub snippet - i did not know how to convert hex to rgba before this 
-    if (hexCode !== undefined) {
       let hex = hexCode.replace("#", "");
 
       if (hex.length === 3) {
@@ -51,7 +41,7 @@ export const SubContent = (props) => {
       const b = parseInt(hex.substring(4, 6), 16);
 
       return `rgba(${r},${g},${b},${opacity / 1})`;
-    }
+    
   };
 
   return (
