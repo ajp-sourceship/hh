@@ -26,7 +26,7 @@ export const  TopBar = (props) => {
             <h2 style={{marginRight:10, color:'white', fontFamily:'Roboto Condensed'}}>Show All</h2>
           }
         </div> */}
-          <h2 style={{marginRight:10, color:'white', fontFamily:'Roboto Condensed'}}>Search</h2>
+          <h2 style={{marginRight:10, color:'white', fontFamily:'Roboto Condensed'}}>Search: </h2>
           <input 
             onChange={(event) => props.setFilterString(event.target.value)}
              style={{height:35}}/>
