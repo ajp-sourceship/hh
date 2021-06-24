@@ -15,6 +15,8 @@ export const SideBar = (props) => {
     props.selectColor(hexString, colorName);
     props.getColors();
   };
+  if(props.colors !== undefined )
+  {
 
   return (
     <div
@@ -59,4 +61,21 @@ export const SideBar = (props) => {
       </Scrollbars>
     </div>
   );
+      }
+      else 
+      {
+        return (
+          <div
+            style={{
+              display: "flex",
+              backgroundColor: "#D6D8D8",
+              flex: 1,
+              flexDirection: "column",
+              
+              height: "92vh",
+            }}
+          >
+            </div>
+        )
+      }
 };

@@ -14,15 +14,14 @@ export const App = () =>  {
   }, [])
 
   const getColors = () => {
-    return fetch('http://localhost:3200/color/getcolors', {
+    return fetch('http://hhapi-env.eba-wmrthc3i.us-east-1.elasticbeanstalk.com/api/getcolors', {
       method: "POST",
     })
       .then(response => response.json())
       .then(response => {
         console.log(response.colors)
-        setColors(response.colors) 
-        setColorsFiltered(response.colors) 
-        return response.colors;
+        setColors(response) 
+        setColorsFiltered(response) 
       })
       .catch(error => {
         console.log(`woops: ` + error)
@@ -37,7 +36,7 @@ export const App = () =>  {
         colorName
       }
 
-    return fetch('http://localhost:3200/color/insertColor', {
+    return fetch('http://hhapi-env.eba-wmrthc3i.us-east-1.elasticbeanstalk.com/api/insertColor', {
       method: "POST",
       headers:myHeaders,
       body: JSON.stringify(body)
@@ -56,23 +55,24 @@ export const App = () =>  {
     setColorsFiltered(colors.filter(color => color.ColorName.toLowerCase().includes(str.toLowerCase())))
   }
 
-
   return (
     <div style={{ display: "flex", flex: 1, height:'100vh', flexDirection: "column",alignItems:'stretch'}}>
       <TopBar setFilterString={(str) => filterStringChanged(str)} filterString={filterString}/>
       <div style={{ display: "flex", flex: 10, flexDirection: "row", alignSelf:'stretch',  }}>
-        <div style={{ display: "flex", backgroundColor: "green",  flex:1 }}>
+        <div style={{ display: "flex", flex:1 }}>
           <SideBar 
             colors={colorsFiltered} getColors={() => getColors()} 
             genColor={(hexString, colorName) => insertColor(hexString, colorName)}
             selectColor={(hexString, colorName) => setSelectedColor({hexString, colorName})}
             />
         </div>
-        <div style={{ display: "flex", backgroundColor: "yellow", flex:6 }}>
-          <Content 
-            colors={colors}
-            selectedColor={selectedColor}
-              />
+        <div style={{ display: "flex", flex:6 }}>
+          {selectedColor == '' ? 
+            <Content 
+              colors={colors}
+              selectedColor={selectedColor}
+                />
+          : null}
         </div>
       </div>
     </div>
