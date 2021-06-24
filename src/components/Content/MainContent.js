@@ -17,6 +17,7 @@ export const MainContent = (props) => {
           borderWidth: 1,
           borderStyle: "solid",
           borderRadius: 8,
+          boxShadow: "1px 2px 1px #9E9E9E"
           
         }}
       >

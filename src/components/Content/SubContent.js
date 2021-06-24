@@ -78,6 +78,8 @@ export const SubContent = (props) => {
                 borderRadius: 8,
                 marginLeft: 20,
                 marginRight: 20,
+                boxShadow: "1px 2px 1px #9E9E9E"
+
               }}
             >
               <div
