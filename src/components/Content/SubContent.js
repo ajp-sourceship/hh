@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { PalletTile } from "./comps/PalletTile";
 
 export const SubContent = (props) => {
   const [colorPallet, setColorPallet] = useState([]);
@@ -57,39 +58,11 @@ export const SubContent = (props) => {
       >
         {colorPallet.map((color) => {
           return (
-            <div
-              style={{
-                backgroundColor: "white",
-                width: "10%",
-                height: "80%",
-                borderColor: "silver",
-                borderWidth: 1,
-                borderStyle: "solid",
-                borderRadius: 8,
-                marginLeft: 20,
-                marginRight: 20,
-                boxShadow: "1px 2px 1px #9E9E9E"
-
-              }}
-            >
-              <div
-                style={{
-                  backgroundColor: color.rgba,
-                  margin:1,
-                  borderTopLeftRadius:8,
-                  borderTopRightRadius:8,
-                  height: "70%",
-                }}
-              ></div>
-              <div style={{display:'flex', flexDirection:'row', justifyContent:'space-between', margin:2}}>
-              <h3 style={{ margin: 10, fontFamily: "Roboto Condensed" }}>
-                {color.hexColor}
-              </h3>
-              <h3 style={{ marginTop: 10, fontFamily: "Roboto Condensed" }}>
-                {'' +  (color.opacity * 100) + `%`}
-              </h3>
-              </div>
-            </div>
+            <PalletTile 
+              rgba={color.rgba}
+              opacity={color.opacity}
+              hexColor={color.hexColor}
+              />
           );
         })}
       </div>
