@@ -60,6 +60,9 @@ export const SubContent = (props) => {
         style={{
           display: "flex",
           flex: 5,
+          marginLeft:10,
+          marginRight:10
+
         }}
       >
         {colorPallet.map((color) => {
@@ -69,8 +72,8 @@ export const SubContent = (props) => {
                 backgroundColor: "white",
                 width: "10%",
                 height: "80%",
-                borderColor: "black",
-                borderWidth: 2,
+                borderColor: "silver",
+                borderWidth: 1,
                 borderStyle: "solid",
                 borderRadius: 8,
                 marginLeft: 20,
@@ -80,6 +83,9 @@ export const SubContent = (props) => {
               <div
                 style={{
                   backgroundColor: color.rgba,
+                  margin:1,
+                  borderTopLeftRadius:8,
+                  borderTopRightRadius:8,
                   height: "70%",
                 }}
               ></div>

@@ -13,8 +13,8 @@ export const MainContent = (props) => {
           backgroundColor: "white",
           width: "96%",
           height: "90%",
-          borderColor: "black",
-          borderWidth: 2,
+          borderColor: "silver",
+          borderWidth: 1,
           borderStyle: "solid",
           borderRadius: 8,
           
@@ -23,8 +23,10 @@ export const MainContent = (props) => {
         <div
           style={{
             backgroundColor: props.selectedColor.hexString,
-            
             height: "90%",
+            borderTopLeftRadius:8,
+                  borderTopRightRadius:8,
+            margin:2
           }}
         ></div>
         <h1 style={{ margin: 10, fontFamily: "Roboto Condensed" }}>
