@@ -8,6 +8,7 @@ export const App = () =>  {
   const [colorsFiltered, setColorsFiltered] = useState([])
   const [selectedColor, setSelectedColor] = useState('')
   const [filterString, setFilterString] = useState('')
+  const [showAllBool, setShowAllBool] = useState(false)
 
   useEffect(() => {
     getColors()
@@ -55,9 +56,18 @@ export const App = () =>  {
     setColorsFiltered(colors.filter(color => color.ColorName.toLowerCase().includes(str.toLowerCase())))
   }
 
+  const toggleShowAll =(str) => {
+    setShowAllBool(!showAllBool)
+  }
+
   return (
     <div style={{ display: "flex", flex: 1, height:'100vh', flexDirection: "column",alignItems:'stretch'}}>
-      <TopBar setFilterString={(str) => filterStringChanged(str)} filterString={filterString}/>
+      <TopBar 
+        setFilterString={(str) => filterStringChanged(str)} 
+        filterString={filterString}
+        toggleShowAll={() => toggleShowAll()}
+        showAllBool={showAllBool}
+        />
       <div style={{ display: "flex", flex: 10, flexDirection: "row", alignSelf:'stretch',  }}>
         <div style={{ display: "flex", flex:1 }}>
           <SideBar 
