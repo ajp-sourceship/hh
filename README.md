@@ -1,6 +1,6 @@
 # HH Interview Front End
 
-Has most if not all of the basic requirements from the challenge repo
+Has most of the basic requirements from the challenge repo
 
 What Went on: 
 1. Creation of DB in rds
@@ -11,8 +11,6 @@ What Went on:
   ### Front End Successful
   ### Back End Successful
 
-### Front End url: https://main.ddaonjar68sjt.amplifyapp.com/
-### Speed Run Trials: https://drive.google.com/file/d/1uDkR852YmoumGaxJLhv9K-AkNHzF3-J9/view?usp=sharing
+### Project Url: https://main.ddaonjar68sjt.amplifyapp.com/
+### Speed Run Trials: https://drive.google.com/file/d/1NfvE8iWY1ynSML2yKFz9ezZPqyJLyLTl/view?usp=sharing
 
-Whats Missing 
-Deployment Errors for Express Backend - node is not starting in prod
