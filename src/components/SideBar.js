@@ -47,15 +47,16 @@ export const SideBar = (props) => {
       <Scrollbars style={{  }}>
         {props.colors.map((color) => {
           return (
-            <div style={{ display: "flex", marginLeft: 20 }}>
+            <button 
+            onClick={() => props.selectColor(color.HexString)}
+              style={{ display: "flex", marginLeft: 20, background: 'transparent', borderWidth:0, width:'100%' }}>
               <h1
                 style={{ fontFamily: "Roboto Condensed" }}
                 key={color.ColorId}
-                onClick={() => props.selectColor(color.HexString)}
               >
                 {color.ColorName}
               </h1>
-            </div>
+            </button>
           );
         })}
       </Scrollbars>
