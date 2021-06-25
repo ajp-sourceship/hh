@@ -1,7 +1,14 @@
 import { useEffect, useState } from "react";
+import { useAlert } from "react-alert";
 
 export const PalletTile = (props) => {
   
+    const alert = useAlert();
+
+    const copyRgbaToClipboard = (rgba) => {
+        navigator.clipboard.writeText(props.rgba)
+        alert.show('Rgba String Copied to Clipboard')
+    }
   return (
  
             <div
@@ -18,6 +25,7 @@ export const PalletTile = (props) => {
                 boxShadow: "1px 2px 1px #9E9E9E"
 
               }}
+              onClick={() => copyRgbaToClipboard(props.rgba)}
             >
               <div
                 style={{
