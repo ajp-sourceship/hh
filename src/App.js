@@ -67,7 +67,7 @@ export const App = () =>  {
         toggleShowAll={() => toggleShowAll()}
         showAllBool={showAllBool}
         />
-      <div style={{ display: "flex", flex: 10, flexDirection: "row", alignSelf:'stretch',  }}>
+      <div style={{ display: "flex", flexDirection: "row", alignSelf:'stretch',  }}>
         <div style={{ display: "flex", flex:1 }}>
           <SideBar 
             colors={colorsFiltered} getColors={() => getColors()} 
