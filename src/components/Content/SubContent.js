@@ -5,11 +5,9 @@ export const SubContent = (props) => {
   const [colorPallet, setColorPallet] = useState([]);
 
   useEffect(() => {
-    console.log(props.selectedColor);
     if (props.selectedColor.hexString !== "") {
       let temp = [];
       for (let index = 1; index < 6; index++) {
-        console.log(index)
         let ret = props.selectedColor.hexString;
         let rgbastring = convertHexToRGBA(ret, (100- (index * 10)) / 100);
 
@@ -17,7 +15,6 @@ export const SubContent = (props) => {
         temp.sort((colorA, colorB) => colorA.opacity - colorB.opacity)
         temp.reverse();
       }
-      console.log(temp)
       setColorPallet(temp);
     }
   }, [props.selectedColor.hexString]);

@@ -20,7 +20,6 @@ export const App = () =>  {
     })
       .then(response => response.json())
       .then(response => {
-        console.log(response.colors)
         setColors(response) 
         setColorsFiltered(response) 
       })

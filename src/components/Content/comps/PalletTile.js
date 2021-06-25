@@ -27,7 +27,7 @@ export const PalletTile = (props) => {
                   borderTopRightRadius:8,
                   height: "70%",
                 }}
-              ></div>
+              />
               <div style={{display:'flex', flexDirection:'row', justifyContent:'space-between', margin:2}}>
               <h3 style={{ margin: 10, fontFamily: "Roboto Condensed" }}>
                 {props.hexColor}
